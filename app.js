@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 let date = new Date();
-let day = date.getDate();
+let day = date.getDate() +1;
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
 let data = [];
@@ -23,6 +23,7 @@ fetch('https://www.sodexo.fi/ruokalistat/output/daily_json/16365/'+year+'/'+mont
   console.log(myJson.courses.length);
   myJson.courses.forEach((t) => data.push({name: t.title_fi, price: t.price}));
   console.log(data);
+  console.log(day, month, year);
 
   fs.writeFile('ruoka.json', JSON.stringify(data), (err) => {
     if(err) throw err;
