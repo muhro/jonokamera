@@ -11,7 +11,7 @@ let year = date.getFullYear();
 let data = [];
 console.log(day, month, year)
 
-fetch('https://www.sodexo.fi/ruokalistat/output/daily_json/16365/'+year+'/'+month+'/'+day+'/fi')
+fetch('https://www.sodexo.fi/ruokalistat/output/daily_json/152/'+year+'-'+month+'-'+day)
 .then(function(response){
   if(response.ok){
     return response.json();

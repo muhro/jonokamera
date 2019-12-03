@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,39 +25,34 @@
 <body onload="choiceFunction(); choiceKampus();">
 <header class="headerC">
     <img src="img/MP-logo.png" class="img">
-    <h1 class="kampus" id="kampus"> Kampus</h1>
+    <h1 class="kampus" id="kampus">Kampus<span class="triangle"></span></h1>
     <div class="dropdown">
         <div class="list" id="kampuslista" style="display: none">
-            <h1 class="choice" id="choice1">Leiritie</h1>
-            <h1 class="choice" id="choice2">Hämeentie</h1>
-            <h1 class="choice" id="choice3">Myllypuro</h1>
-            <h1 class="choice" id="choice4">Vanha viertotie</h1>
-            <h1 class="choice" id="choice5">Myllypuro</h1>
-            <h1 class="choice" id="choice6">Vanha viertotie</h1>
+            <h1 class="choice" id="152">Leiritie<span class="triangle"></span></h1>
+            <h1 class="choice" id="152">Hämeentie<span class="triangle"></span></h1>
+            <h1 class="choice" id="158">Myllypuro<span class="triangle"></span></h1>
+            <h1 class="choice" id="152">Vanha viertotie<span class="triangle"></span></h1>
         </div>
     </div>
 
 
 </header>
 <div class="leftDiv">
-    <h2 class="otsikko">
+    <div class="otsikko">
         <img class="thumb" src="img/jono-img.png">
-        RUOKALAN JONO
-    </h2>
+        <h2 class="otsikkoH1">RUOKALAN JONO</h2>
+    </div>
     <div class="ruokalanjono">
-        <div>
-            <canvas width="720" height="560" id="canvas" class="canvas"></canvas>
-            <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo.mp4">
-            </video>
-
-        </div>
+        <canvas width="720" height="560" id="canvas" class="canvas"></canvas>
+        <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo.mp4">
+        </video>
     </div>
 </div>
 <div class="rightDiv">
-    <h2 class="otsikko">
+    <div class="otsikko">
         <img class="thumb" src="img/ruokalista-img.png">
-        RUOKALISTA
-    </h2>
+        <h2 class="otsikkoH1">RUOKALISTA</h2>
+    </div>
     <div class="ruokalista">
         <div class="moi" id="ruokaLista">
         </div>
@@ -68,6 +62,7 @@
 
 </body>
 <script>
+
   Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri('./models'),
     faceapi.nets.faceLandmark68Net.loadFromUri('./models'),
@@ -92,9 +87,7 @@
     setInterval(async () => {
       const partSegmentation = await net.segmentPersonParts(img);
 
-// The colored part image is an rgb image with a corresponding color from the
-// rainbow colors for each part at each pixel, and white pixels where there is
-// no part.
+
       const coloredPartImage = bodyPix.toColoredPartMask(partSegmentation);
       const opacity = 0.7;
       const flipHorizontal = false;
@@ -120,20 +113,19 @@
       } else if (document.getElementById('kampuslista').style.display === 'none') {
         document.getElementById('kampuslista').style.display = 'inline-flex';
       }
-      console.log("close");
     });
   }
 
   function choiceKampus() {
 
-    for (let i = 1; i < 7; i++) {
-      document.getElementById('choice' + i).addEventListener('click', function(event) {
-        let innerHtml = event.target || event.srcElement;
-        document.getElementById('kampus').innerHTML = innerHtml.innerHTML;
-        document.getElementById('kampuslista').style.display = 'none';
-        console.log("closeCampus")
-      });
-    }
+    let kampusButtons = document.getElementById('kampuslista');
+
+    kampusButtons.addEventListener('click', function(event) {
+      let innerHtml = event.target || event.srcElement;
+      console.log(innerHtml.id);
+      document.getElementById('kampus').innerHTML = innerHtml.innerHTML;
+      document.getElementById('kampuslista').style.display = 'none';
+    });
   }
 
 
@@ -142,4 +134,3 @@
 
 
 </html>
-
