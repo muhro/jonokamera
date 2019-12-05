@@ -11,15 +11,7 @@
     <script src="models/face-api.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="img/MP-favicon.png"/>
     <script>
-      window.addEventListener('load', (event) => {
 
-      });
-
-      document.addEventListener('readystatechange', (event) => {
-      });
-
-      document.addEventListener('DOMContentLoaded', (event) => {
-      });
     </script>
 </head>
 <body onload="choiceFunction(); choiceKampus();">
@@ -29,9 +21,9 @@
     <div class="dropdown">
         <div class="list" id="kampuslista" style="display: none">
             <h1 class="choice" id="152">Leiritie<span class="triangle"></span></h1>
-            <h1 class="choice" id="152">Hämeentie<span class="triangle"></span></h1>
+            <h1 class="choice" id="153">Hämeentie<span class="triangle"></span></h1>
             <h1 class="choice" id="158">Myllypuro<span class="triangle"></span></h1>
-            <h1 class="choice" id="152">Vanha viertotie<span class="triangle"></span></h1>
+            <h1 class="choice" id="154">Vanha viertotie<span class="triangle"></span></h1>
         </div>
     </div>
 
@@ -44,7 +36,7 @@
     </div>
     <div class="ruokalanjono">
         <canvas width="720" height="560" id="canvas" class="canvas"></canvas>
-        <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo.mp4">
+        <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo3.mp4">
         </video>
     </div>
 </div>
@@ -85,24 +77,22 @@
 
     });
     setInterval(async () => {
-      const partSegmentation = await net.segmentPersonParts(img);
+      const partSegmentation = await net.segmentMultiPersonParts(img);
 
 
-      const coloredPartImage = bodyPix.toColoredPartMask(partSegmentation);
-      const opacity = 0.7;
+      const backgroundBlurAmount = 3;
+      const edgeBlurAmount = 3;
       const flipHorizontal = false;
-      const maskBlurAmount = 0;
-      const pixelCellWidth = 10.0;
-
+      const faceBodyPartIdsToBlur = [0,1,2];
       const canvas = document.getElementById('canvas');
 
       const displaySize = {width: video.width, height: video.height};
       faceapi.matchDimensions(canvas, displaySize);
 
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-      bodyPix.drawPixelatedMask(
-          canvas, img, coloredPartImage, opacity, maskBlurAmount,
-          flipHorizontal, pixelCellWidth);
+      bodyPix.blurBodyPart(
+          canvas, img, partSegmentation, faceBodyPartIdsToBlur,
+          backgroundBlurAmount, edgeBlurAmount, flipHorizontal);
     }, 60);
   }
 
@@ -122,7 +112,6 @@
 
     kampusButtons.addEventListener('click', function(event) {
       let innerHtml = event.target || event.srcElement;
-      console.log(innerHtml.id);
       document.getElementById('kampus').innerHTML = innerHtml.innerHTML;
       document.getElementById('kampuslista').style.display = 'none';
     });

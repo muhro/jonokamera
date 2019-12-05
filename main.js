@@ -21,10 +21,13 @@ document.getElementById('kampuslista').addEventListener('click', function() {
   console.log(day);
   console.log(month);
   console.log(year);
+  console.log(url);
+
 
   fetch(url).then((response) => {
     if(response.ok) {
-      return response.json();
+      return response.json();  console.log(response.json);
+
     }
     else{
       throw new Error('Response not ok');
@@ -32,10 +35,9 @@ document.getElementById('kampuslista').addEventListener('click', function() {
   }).then((result) => {
 
     const lunch = result.courses;
-    console.log(lunch[0]);
-
-    for (let i = 0; i < lunch.length; i++) {
-
+    console.log(lunch);
+    const co = Object.keys(lunch);
+    for (let i = 1; i <= co.length; i++) {
 
       lista.innerHTML += lunch[i].title_fi.bold() + ' / ' + lunch[i].title_en.bold() + ' ' + '<br>' + 'Hinta: ' + lunch[i].price + '<br>' +
           lunch[i].properties + "<br>" + "<br>";
