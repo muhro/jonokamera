@@ -1,5 +1,6 @@
 * {
     font-family: 'Lato', Verdana, sans-serif !important;
+
 }
 
 ::-webkit-scrollbar {
@@ -10,6 +11,7 @@ body {
     background: url("https://webdev-public.metropolia.fi/taustakuvat/tausta_oma.png") no-repeat fixed #fff;
     background-size: cover;
     margin: 0;
+    -ms-overflow-style: none;
 
 }
 
@@ -146,7 +148,7 @@ body {
     max-width: 47.75vw;
     min-width: 47.75vw;
     min-height: 35vw;
-    border-radius: 0 0 0.2vw 0.2vw;
+    border-radius: 0 0 0.4em 0.4em;
     background-color: white;
     padding: 1vw;
 }

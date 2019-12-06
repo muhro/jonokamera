@@ -26,7 +26,8 @@ document.getElementById('kampuslista').addEventListener('click', function() {
 
   fetch(url).then((response) => {
     if(response.ok) {
-      return response.json();  console.log(response.json);
+      console.log(response.json);
+      return response.json();
 
     }
     else{
@@ -34,18 +35,20 @@ document.getElementById('kampuslista').addEventListener('click', function() {
     }
   }).then((result) => {
 
+    if (result.courses === null){
+      lista.innerHTML = "Kampus ei tarjoa tänään lounasta."
+    }
+
     const lunch = result.courses;
-    console.log(lunch);
     const co = Object.keys(lunch);
+
     for (let i = 1; i <= co.length; i++) {
 
       lista.innerHTML += lunch[i].title_fi.bold() + ' / ' + lunch[i].title_en.bold() + ' ' + '<br>' + 'Hinta: ' + lunch[i].price + '<br>' +
           lunch[i].properties + "<br>" + "<br>";
     }
 
-    if (weekday == 0 || weekday == 6) {
-      lista.innerHTML = 'Tämä ravintola ei tarjoile lounasta viikonloppuisin.';
-    }
+
   })
 
 });

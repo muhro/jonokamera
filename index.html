@@ -36,7 +36,7 @@
     </div>
     <div class="ruokalanjono">
         <canvas width="720" height="560" id="canvas" class="canvas"></canvas>
-        <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo3.mp4">
+        <video class="video" id="video" width="720" height="560" autoplay muted loop src="img/testivideo4.mp4">
         </video>
     </div>
 </div>
@@ -72,8 +72,8 @@
     const net = await bodyPix.load({
       architecture: 'MobileNetV1',
       outputStride: 16,
-      multiplier: 0.75,
-      quantBytes: 2,
+      multiplier: 0.5,
+      quantBytes: 4,
 
     });
     setInterval(async () => {
@@ -97,7 +97,7 @@
   }
 
   function choiceFunction() {
-    document.getElementById('kampus').addEventListener('click', function() {
+    document.getElementById('kampus').addEventListener('click',() => {
       if (document.getElementById('kampuslista').style.display === 'inline-flex') {
         document.getElementById('kampuslista').style.display = 'none';
       } else if (document.getElementById('kampuslista').style.display === 'none') {
@@ -110,10 +110,12 @@
 
     let kampusButtons = document.getElementById('kampuslista');
 
-    kampusButtons.addEventListener('click', function(event) {
+    kampusButtons.addEventListener('click', (event) => {
       let innerHtml = event.target || event.srcElement;
       document.getElementById('kampus').innerHTML = innerHtml.innerHTML;
+     // document.getElementById('video').innerHTML =
       document.getElementById('kampuslista').style.display = 'none';
+
     });
   }
 
