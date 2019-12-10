@@ -65,16 +65,11 @@
   loadAndPredict();
 
  // const img = document.getElementById('video');
-  const video = document.getElementById('video');
+ // const video = document.getElementById('video');
   async function loadAndPredict() {
 
     setInterval(async () => {
-      const displaySize = {width: video.width, height: video.height};
-      faceapi.matchDimensions(canvas, displaySize);
-
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
       document.getElementById('video').style.filter = 'blur(3px)';
-      document.getElementById('canvas').style.opacity = '80%';
     //  document.getElementById('video').style.opacity = '0';
     },30);
 
