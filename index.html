@@ -81,31 +81,36 @@
    /*
 ----------------------------------------------------------------------------------
 |    This site does not need anything installed                                  |
+|                                                                                |
 |    It requires links in <head> and the faceAPI file in /models                 |
 |    BodyPix/faceAPI documentation are good and easy to use                      |
-|      and the SetInterval above should be commented out if you are going to use |
-|      BodyPix/faceAPI and take the commented video opacity out of comments      |
+|     and the SetInterval(async () => { },30);                                   |
+|     above should be commented out if you are going to use BodyPix/faceAPI      |
+|     and take the commented video opacity out of comments                       |
 |     so the SetInterval only hides the original video stream                    |
+|     code draws canvas on top of the video element and hides the video element  |
+|     in the canvas faceAPI/BodyPix draws blur/colors so it will look like blur  |
 |--------------------------------------------------------------------------------|
 |    LoadAndPredict function have two different function to use                  |
 |    Both require the const net = await bodyPix.load({}) marked below            |
 |    and the setInterval(async () => { },60);                                    |
 |--------------------------------------------------------------------------------|
-|                                                                                |
 |    Blurry :                                                                    |
 |    Blurs the people tensorFlow finds                                           |
+|    in the blurring there is array of numbers and each number means different   |
+|    body part so you can decide what parts do you want the code to search       |
 |--------------------------------------------------------------------------------|
-|                                                                                |
 |    Color :                                                                     |
-|    Color the people tensorFlow finds                                           |
+|    Color the people tensorFlow finds , marks body parts with different colors  |
+|    You can find the body part IDs in BodyPixs Documentation                    |
 |--------------------------------------------------------------------------------|
 |    Main.js and app.js make the Sodexo food JSON work                           |
 |--------------------------------------------------------------------------------|
 |          All the blurring and menu stuff are done here                         |
 |              below the BodyPix/FaceAPI stuff                                   |
+|                                                                                |
+|                                                                                |
 ----------------------------------------------------------------------------------
-
-
 
 
     const net = await bodyPix.load({
@@ -124,7 +129,6 @@
 
       const partSegmentation = await net.segmentMultiPersonParts(img);
 
-
       const backgroundBlurAmount = 3;
       const edgeBlurAmount = 3;
       const flipHorizontal = false;
@@ -135,16 +139,14 @@
       faceapi.matchDimensions(canvas, displaySize);
 
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-
       bodyPix.blurBodyPart(
           canvas, img, partSegmentation, faceBodyPartIdsToBlur,
           backgroundBlurAmount, edgeBlurAmount, flipHorizontal);
-
        */
 
       /* COLOR
-       const partSegmentation = await net.segmentMultiPersonParts(img);
 
+        const partSegmentation = await net.segmentMultiPersonParts(img);
 
         const coloredPartImage = bodyPix.toColoredPartMask(partSegmentation);
         const opacity = 0.7;
@@ -152,20 +154,14 @@
         const maskBlurAmount = 0;
         const canvas = document.getElementById('canvas');
 
-         const displaySize = {width: video.width, height: video.height};
-      faceapi.matchDimensions(canvas, displaySize);
+        const displaySize = {width: video.width, height: video.height};
+        faceapi.matchDimensions(canvas, displaySize);
 
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-
-         bodyPix.drawMask(
-      canvas, img, coloredPartImage, opacity, maskBlurAmount,
-      flipHorizontal);
+        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        bodyPix.drawMask(
+            canvas, img, coloredPartImage, opacity, maskBlurAmount,
+            flipHorizontal);
         */
-
-
-
-
-
   //  }, 30);
   }
 

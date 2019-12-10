@@ -67,7 +67,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="812" />
-          <entry key="html" value="3742" />
+          <entry key="html" value="4592" />
           <entry key="js" value="1729" />
           <entry key="json" value="13" />
         </counts>
@@ -75,7 +75,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="812" />
-          <entry key="HTML" value="3742" />
+          <entry key="HTML" value="4592" />
           <entry key="JSON" value="13" />
           <entry key="JavaScript" value="1729" />
         </counts>
@@ -123,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="77" column="61" lean-forward="true" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+            <state relative-caret-position="-13">
+              <caret line="90" column="82" lean-forward="true" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -306,12 +306,12 @@
       <workItem from="1574337739319" duration="33653000" />
       <workItem from="1574519125746" duration="46456000" />
       <workItem from="1575840183921" duration="6722000" />
-      <workItem from="1575917585731" duration="4436000" />
+      <workItem from="1575917585731" duration="7394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121885000" />
+    <option name="totallyTimeSpent" value="124843000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,7 +326,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28097165" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19433199" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -383,8 +383,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="77" column="61" lean-forward="true" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+        <state relative-caret-position="-13">
+          <caret line="90" column="82" lean-forward="true" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
