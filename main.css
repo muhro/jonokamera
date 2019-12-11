@@ -45,12 +45,27 @@ body {
 .choice {
     height: 100%;
     margin: auto;
-    width: 17vw;
     font-size: 1.5em;
     line-height: 2.7em;
     color: #505659;
     font-weight: bold !important;
     position:relative;
+}
+
+.c152{
+    width: 5em;
+}
+
+.c153{
+    width: 6em;
+}
+
+.c158{
+    width: 6em;
+}
+
+.c154{
+    width: 8em;
 }
 
 .choice .triangle{
@@ -67,15 +82,15 @@ body {
     display:block;
     position:absolute;
     bottom:0;
-    left:47%;
+    left:42%;
 }
 
 .kampus {
     height: 100%;
-    width: 8vw;
+    width: 8em;
     margin: auto;
     font-size: 2em;
-    text-align: left;
+    text-align: center;
     line-height: 1.95em;
     float: left;
     font-weight: bolder !important;
@@ -97,7 +112,7 @@ body {
     display:block;
     position:absolute;
     bottom:0;
-    left:25%;
+    left:42%;
 }
 
 .video {

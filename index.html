@@ -17,13 +17,13 @@
 <body onload="choiceFunction(); choiceKampus();">
 <header class="headerC">
     <img src="img/MP-logo.png" class="img">
-    <h1 class="kampus" id="kampus">Kampus<span class="triangle"></span></h1>
+    <h1 class="kampus" id="kampus">Valitse kampus<span class="triangle"></span></h1>
     <div class="dropdown">
         <div class="list" id="kampuslista" style="display: none">
-            <h1 class="choice 152" id="152">Leiritie<span class="triangle"></span></h1>
-            <h1 class="choice 153" id="153">Hämeentie<span class="triangle"></span></h1>
-            <h1 class="choice 158" id="158">Myllypuro<span class="triangle"></span></h1>
-            <h1 class="choice 154" id="154">Vanha viertotie<span class="triangle"></span></h1>
+            <h1 class="choice c152" id="152">Leiritie<span class="triangle"></span></h1>
+            <h1 class="choice c153" id="153">Hämeentie<span class="triangle"></span></h1>
+            <h1 class="choice c158" id="158">Myllypuro<span class="triangle"></span></h1>
+            <h1 class="choice c154" id="154">Vanha viertotie<span class="triangle"></span></h1>
         </div>
     </div>
 
@@ -185,22 +185,22 @@
 
   document.getElementById('152').addEventListener('click', ()=>{
       document.getElementById('video').src = 'img/testivideo4.mp4';
-    document.getElementById('kampus').style.width = '8vw';
+    document.getElementById('kampus').style.width = '4.5em';
       console.log('152');
   });
   document.getElementById('153').addEventListener('click', ()=>{
       document.getElementById('video').src = 'img/testivideo2.mp4';
-    document.getElementById('kampus').style.width = '12vw';
+    document.getElementById('kampus').style.width = '6em';
       console.log('153');
   });
   document.getElementById('158').addEventListener('click', ()=>{
       document.getElementById('video').src = 'img/testivideo3.mp4';
-    document.getElementById('kampus').style.width = '8vw';
+    document.getElementById('kampus').style.width = '6em';
       console.log('158');
   });
   document.getElementById('154').addEventListener('click', ()=>{
       document.getElementById('video').src = 'img/testivideo.mp4';
-    document.getElementById('kampus').style.width = '22vw';
+    document.getElementById('kampus').style.width = '8em';
       console.log('154');
   });
 
