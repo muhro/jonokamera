@@ -53,19 +53,20 @@ body {
 }
 
 .c152{
-    width: 5em;
+    width: 6em;
+
 }
 
 .c153{
-    width: 6em;
+    width: 7em;
 }
 
 .c158{
-    width: 6em;
+    width: 8em;
 }
 
 .c154{
-    width: 8em;
+    width: 9em;
 }
 
 .choice .triangle{
@@ -87,7 +88,7 @@ body {
 
 .kampus {
     height: 100%;
-    width: 8em;
+    width: 9em;
     margin: auto;
     font-size: 2em;
     text-align: center;
